@@ -1,0 +1,24 @@
+<h2>Your Cart:</h2>
+
+<div *ngIf="cart.length == 0">
+    <h3 id="header">No items in Cart!</h3>
+</div>
+
+<table *ngIf = "cart.length != 0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Game</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of cart" class="cartItems">
+            <td><img src="{{product.image}}" alt="product image" width="100px" height="50px"/></td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price | currency }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button class="btn btn-primary" id="buy">Buy</button>
